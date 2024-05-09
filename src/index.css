@@ -1,0 +1,44 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  background-color: rgb(241, 213, 171);
+}
+/* styling for CharacterList page (homepage) */
+.home-h1{
+  text-align: center;
+  font-weight: 1000;
+}
+
+.characters-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 10px;
+}
+.character-item {
+  flex: 1 0 21%; /* Adjusts the width of each item to be about 21% of the container width */
+  margin: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+.character-item:hover {
+  transform: scale(1.05);
+}
+.character-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* styling for CharacterDetails page  */
+.box {
+  padding: 20px;
+  display: block;
+  margin: auto;
+  height: 300px;
+  width: 500px;
+  background-color: rgb(173, 173, 201);
+}
