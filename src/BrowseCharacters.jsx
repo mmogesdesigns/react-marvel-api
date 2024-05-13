@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import CharacterDetail from "./CharacterDetail";
+import { Link } from "react-router-dom";
 
-
-
-const CharacterList = () => {
+const BrowseCharacters = () => {
   const [characters, setCharacters] = useState([]);
   const [selectedCharacterId, setSelectedCharacterId] = useState(null);
 
@@ -15,25 +13,23 @@ const CharacterList = () => {
     const fetchCharacters = async () => {
       const baseURL = "https://gateway.marvel.com/v1/public/characters";
       const url = `${baseURL}?ts=1&apikey=${PUBLIC_KEY}&hash=${HASH_KEY}&limit=20`;
-      try{
-      const response = await axios.get(url);
-          setCharacters(response.data.data.results);
-      }catch (error){
-        console.log('Failed to fetch characters', error);
+      try {
+        const response = await axios.get(url);
+        setCharacters(response.data.data.results);
+      } catch (error) {
+        console.log("Failed to fetch characters", error);
       }
-        
-      };
-  
+    };
+
     fetchCharacters();
   }, []);
   const handleCharacterSelect = (id) => {
-    console.log("Selected Character ID:", id); 
+    console.log("Selected Character ID:", id);
     setSelectedCharacterId(id);
   };
 
   return (
     <div>
-      <h1 className="home-h1">Marvel Character Browser</h1>
       <div className="characters-grid">
         {characters.map((character) => (
           <div
@@ -58,4 +54,4 @@ const CharacterList = () => {
   );
 };
 
-export default CharacterList;
+export default BrowseCharacters;

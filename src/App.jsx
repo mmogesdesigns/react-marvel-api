@@ -1,18 +1,26 @@
 import React from "react";
-import CharacterList from './components/CharacterList'
+import { Routes, Route } from "react-router-dom";
+
+
+import Home from"./Home"
+import BrowseCharacters from "./BrowseCharacters";
 import CharacterDetail from "./components/CharacterDetail";
 
-
+import Error from "./Error";
 
 function App() {
  
 
   return (
-    <div>
+    <Routes>
+    <div className="app-container">
+      <Route path="/" element={<Home/>}/>
+      <Route path="/browse-characters" element={<BrowseCharacters/>}/>
+      <Route path="/character-details/:characterID" element={<CharacterDetail/>}/>
+      <Route path="*" element={<Error/>}/>
       
-      <CharacterList  />
-      <CharacterDetail/>
     </div>
+    </Routes>
   );
 }
 
